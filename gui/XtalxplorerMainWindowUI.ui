@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>XtalxplorerMainWindow</class>
+ <widget class="QMainWindow" name="XtalxplorerMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>788</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="gui.qrc">
+    <normaloff>:/Icons/PowPySol.svg</normaloff>:/Icons/PowPySol.svg</iconset>
+  </property>
+  <widget class="QWidget" name="container">
+   <property name="minimumSize">
+    <size>
+     <width>1024</width>
+     <height>729</height>
+    </size>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="hLayout_main">
+      <item>
+       <layout class="QVBoxLayout" name="vLayout_tools">
+        <item>
+         <widget class="QToolButton" name="toolButton_open">
+          <property name="text">
+           <string>open file</string>
+          </property>
+          <property name="icon">
+           <iconset resource="gui.qrc">
+            <normaloff>:/Icons/Document-open.svg</normaloff>:/Icons/Document-open.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_copyStructure">
+          <property name="text">
+           <string>Copy</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="progressBar">
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="textDirection">
+           <enum>QProgressBar::BottomToTop</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="vLayout_main" stretch="1,0,1">
+        <item>
+         <layout class="QHBoxLayout" name="hLayout_top" stretch="1,1">
+          <item>
+           <widget class="QTabWidget" name="tabWidget">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="tabParams">
+             <attribute name="title">
+              <string>Coordinates</string>
+             </attribute>
+             <widget class="QWidget" name="gridLayoutWidget_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>471</width>
+                <height>331</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_params">
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,1,1,1,0">
+                 <item>
+                  <widget class="QListWidget" name="lstWidget_atoms">
+                   <property name="minimumSize">
+                    <size>
+                     <width>20</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>90</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="alternatingRowColors">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="DoubleSpinSlider" name="dss_x" native="true">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="DoubleSpinSlider" name="dss_y" native="true">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="DoubleSpinSlider" name="dss_z" native="true">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="DoubleSpinSlider" name="dss_uiso" native="true">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="vLayout_paramButtons">
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_structureSelect">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>70</height>
+                      </size>
+                     </property>
+                     <property name="title">
+                      <string>Structure select:</string>
+                     </property>
+                     <widget class="QWidget" name="verticalLayoutWidget">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>20</y>
+                        <width>119</width>
+                        <height>51</height>
+                       </rect>
+                      </property>
+                      <layout class="QVBoxLayout" name="vLayout_structureSelect">
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_structure1">
+                         <property name="text">
+                          <string>trial structure</string>
+                         </property>
+                         <property name="checked">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_structure2">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="text">
+                          <string>target structure</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </widget>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="hLayout_Cbuttons">
+                     <item>
+                      <widget class="QToolButton" name="toolButton_updateParams">
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normalon>:/Icons/Media-playback-start.svg</normalon>
+                        </iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QToolButton" name="toolButton_randomStructure">
+                       <property name="toolTip">
+                        <string>randomise structure</string>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="gui.qrc">
+                         <normaloff>:/Icons/PowPySol.svg</normaloff>:/Icons/PowPySol.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_autoupdateStructure">
+                     <property name="text">
+                      <string>Autoupdate --&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_showLabels">
+                     <property name="text">
+                      <string>Atom labels</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_suffix">
+                     <property name="toolTip">
+                      <string>Add suffixes to symmetry generated atom labels</string>
+                     </property>
+                     <property name="text">
+                      <string>suffix symm.eq.</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="tab_xtalData">
+             <attribute name="title">
+              <string>Crystal data</string>
+             </attribute>
+             <widget class="QWidget" name="gridLayoutWidget_3">
+              <property name="geometry">
+               <rect>
+                <x>-1</x>
+                <y>-1</y>
+                <width>471</width>
+                <height>331</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_xtalData">
+               <item row="0" column="0">
+                <widget class="QTreeView" name="treeView_xtalData"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="tab_log">
+             <attribute name="title">
+              <string>Log</string>
+             </attribute>
+             <widget class="QWidget" name="gridLayoutWidget">
+              <property name="geometry">
+               <rect>
+                <x>-1</x>
+                <y>-1</y>
+                <width>471</width>
+                <height>331</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_log">
+               <item row="0" column="0">
+                <widget class="QTextEdit" name="textEdit_log"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="MayaviQStructureWidget" name="QMayavi_structure" native="true"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayout_bottom" stretch="1,0,1">
+          <item>
+           <layout class="QVBoxLayout" name="vLayout_mainvis" stretch="0,1">
+            <item>
+             <layout class="QHBoxLayout" name="hLayout_xyselector">
+              <item>
+               <widget class="QLabel" name="label_xaxis">
+                <property name="text">
+                 <string>x-axis:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_x"/>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_fine">
+                <property name="text">
+                 <string>fine</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_autoupdateRPlots">
+                <property name="text">
+                 <string>Autoupdate</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="toolButton_updateRPlots">
+                <property name="text">
+                 <string>...</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="gui.qrc">
+                  <normaloff>:/Icons/Media-playback-start.svg</normaloff>:/Icons/Media-playback-start.svg</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_yaxis">
+                <property name="text">
+                 <string>y-axis:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_y"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="hLayout_topView" stretch="0,1">
+              <item>
+               <widget class="DoubleSpinSlider" name="dss_dmin" native="true"/>
+              </item>
+              <item>
+               <widget class="MayaviQRPlotWidget" name="QMayavi_top" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="MayaviQRPlotWidget" name="QMayavi_3D" native="true"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_open"/>
+    <addaction name="separator"/>
+    <addaction name="action_quit"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_about"/>
+   </widget>
+   <widget class="QMenu" name="menu_Job">
+    <property name="title">
+     <string>&amp;Job</string>
+    </property>
+    <addaction name="action_run"/>
+    <addaction name="action_pause"/>
+    <addaction name="action_stop"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_Job"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_about">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="statusTip">
+    <string>About this programme</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/Icons/Document-open.svg</normaloff>:/Icons/Document-open.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="priority">
+    <enum>QAction::HighPriority</enum>
+   </property>
+  </action>
+  <action name="action_quit">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/Icons/System-log-out-2.svg</normaloff>:/Icons/System-log-out-2.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit this programme</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_run">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/Icons/Media-playback-start.svg</normaloff>:/Icons/Media-playback-start.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Run</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="action_pause">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/Icons/Media-playback-pause.svg</normaloff>:/Icons/Media-playback-pause.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pause</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="action_stop">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/Icons/Media-playback-stop.svg</normaloff>:/Icons/Media-playback-stop.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Stop</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MayaviQStructureWidget</class>
+   <extends>QWidget</extends>
+   <header>gui.mayaviqwidget</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DoubleSpinSlider</class>
+   <extends>QWidget</extends>
+   <header>gui.doublespinslider</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MayaviQRPlotWidget</class>
+   <extends>QWidget</extends>
+   <header>gui.mayaviqwidget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="gui.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_quit</sender>
+   <signal>activated()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_about</sender>
+   <signal>activated()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_open</sender>
+   <signal>activated()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>browse_structure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_open</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>browse_structure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>371</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lstWidget_atoms</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>load_atom_params(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_updateParams</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>update_params()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>505</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_autoupdateStructure</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>handle_autoupdate_structure(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_showLabels</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>invalidate_cached_params()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_suffix</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>invalidate_cached_params()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_autoupdateRPlots</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>handle_autoupdate_r_plots(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>287</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_structure1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>_load_structure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>475</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_randomStructure</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>randomise_structure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_copyStructure</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>_copy_structure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_updateRPlots</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>update_rplots()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_fine</sender>
+   <signal>clicked()</signal>
+   <receiver>XtalxplorerMainWindow</receiver>
+   <slot>update_rplots()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>about()</slot>
+  <slot>browse_structure()</slot>
+  <slot>handle_stdout()</slot>
+  <slot>update_params()</slot>
+  <slot>load_atom_params(int)</slot>
+  <slot>handle_autoupdate_structure(bool)</slot>
+  <slot>invalidate_cached_params()</slot>
+  <slot>handle_autoupdate_r_plots(bool)</slot>
+  <slot>randomise_structure()</slot>
+  <slot>_copy_structure()</slot>
+  <slot>_load_structure()</slot>
+  <slot>update_rplots()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,18 @@
+<RCC>
+  <qresource>
+    <file>Icons/Media-playback-stop.svg</file>
+    <file>Icons/Media-playback-pause.svg</file>
+    <file>Icons/Media-playback-start.svg</file>
+    <file>Icons/Document-open.svg</file>
+    <file>Icons/System-log-out-2.svg</file>
+    <file>Icons/PowPySol.svg</file>
+    <file>Icons/Go-next5.svg</file>
+    <file>Icons/Go-next10.svg</file>
+    <file>Icons/Go-previous5.svg</file>
+    <file>Icons/Go-previous10.svg</file>
+    <file>Icons/Go-last.svg</file>
+    <file>Icons/Go-next.svg</file>
+    <file>Icons/Go-previous.svg</file>
+    <file>Icons/Go-first.svg</file>
+  </qresource>
+</RCC>

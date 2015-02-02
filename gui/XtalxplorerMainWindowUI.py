@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'XtalxplorerMainWindowUI.ui'
 #
-# Created: Mon Feb  2 20:27:59 2015
+# Created: Mon Feb  2 23:43:39 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -32,12 +32,12 @@ class Ui_XtalxplorerMainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(XtalxplorerMainWindow.sizePolicy().hasHeightForWidth())
         XtalxplorerMainWindow.setSizePolicy(sizePolicy)
-        XtalxplorerMainWindow.setMinimumSize(QtCore.QSize(1024, 740))
+        XtalxplorerMainWindow.setMinimumSize(QtCore.QSize(800, 600))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/Icons/PowPySol.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         XtalxplorerMainWindow.setWindowIcon(icon)
         self.container = QtGui.QWidget(XtalxplorerMainWindow)
-        self.container.setMinimumSize(QtCore.QSize(1024, 700))
+        self.container.setMinimumSize(QtCore.QSize(780, 580))
         self.container.setObjectName(_fromUtf8("container"))
         self.gridLayout = QtGui.QGridLayout(self.container)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))

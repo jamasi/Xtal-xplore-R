@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'XtalxplorerMainWindowUI.ui'
 #
-# Created: Mon Feb  2 23:55:27 2015
+# Created: Tue Feb  3 00:00:58 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -78,7 +78,7 @@ class Ui_XtalxplorerMainWindow(object):
         self.tabParams = QtGui.QWidget()
         self.tabParams.setObjectName(_fromUtf8("tabParams"))
         self.gridLayoutWidget_2 = QtGui.QWidget(self.tabParams)
-        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 471, 331))
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 471, 301))
         self.gridLayoutWidget_2.setObjectName(_fromUtf8("gridLayoutWidget_2"))
         self.gridLayout_params = QtGui.QGridLayout(self.gridLayoutWidget_2)
         self.gridLayout_params.setMargin(0)

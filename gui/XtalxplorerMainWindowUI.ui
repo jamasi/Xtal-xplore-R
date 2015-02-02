@@ -108,267 +108,249 @@
              <attribute name="title">
               <string>Coordinates</string>
              </attribute>
-             <widget class="QWidget" name="gridLayoutWidget_2">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>471</width>
-                <height>301</height>
-               </rect>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_params">
-               <item row="0" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2,2,2,2,2">
-                 <item>
-                  <widget class="QListWidget" name="lstWidget_atoms">
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>90</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="alternatingRowColors">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="DoubleSpinSlider" name="dss_x" native="true">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="DoubleSpinSlider" name="dss_y" native="true">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="DoubleSpinSlider" name="dss_z" native="true">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="DoubleSpinSlider" name="dss_uiso" native="true">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="vLayout_paramButtons">
-                   <item>
-                    <widget class="QGroupBox" name="groupBox_structureSelect">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>70</height>
-                      </size>
-                     </property>
-                     <property name="title">
-                      <string>Structure select:</string>
-                     </property>
-                     <widget class="QWidget" name="verticalLayoutWidget">
-                      <property name="geometry">
-                       <rect>
-                        <x>0</x>
-                        <y>20</y>
-                        <width>119</width>
-                        <height>51</height>
-                       </rect>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_params">
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2,2,2,2,2">
+                  <item>
+                   <widget class="QListWidget" name="lstWidget_atoms">
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>90</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="alternatingRowColors">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="DoubleSpinSlider" name="dss_x" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="DoubleSpinSlider" name="dss_y" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="DoubleSpinSlider" name="dss_z" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="DoubleSpinSlider" name="dss_uiso" native="true">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>30</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="vLayout_paramButtons">
+                    <item>
+                     <widget class="QGroupBox" name="groupBox_structureSelect">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>70</height>
+                       </size>
                       </property>
-                      <layout class="QVBoxLayout" name="vLayout_structureSelect">
-                       <item>
-                        <widget class="QRadioButton" name="radioButton_structure1">
-                         <property name="text">
-                          <string>trial structure</string>
-                         </property>
-                         <property name="checked">
-                          <bool>true</bool>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QRadioButton" name="radioButton_structure2">
-                         <property name="enabled">
-                          <bool>false</bool>
-                         </property>
-                         <property name="text">
-                          <string>target structure</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
+                      <property name="title">
+                       <string>Structure select:</string>
+                      </property>
+                      <widget class="QWidget" name="verticalLayoutWidget">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>20</y>
+                         <width>119</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="vLayout_structureSelect">
+                        <item>
+                         <widget class="QRadioButton" name="radioButton_structure1">
+                          <property name="text">
+                           <string>trial structure</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="radioButton_structure2">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="text">
+                           <string>target structure</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </widget>
-                    </widget>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="hLayout_Cbuttons">
-                     <item>
-                      <widget class="QToolButton" name="toolButton_updateParams">
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                       <property name="icon">
-                        <iconset>
-                         <normalon>:/Icons/Media-playback-start.svg</normalon>
-                        </iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QToolButton" name="toolButton_randomStructure">
-                       <property name="toolTip">
-                        <string>randomise structure</string>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="gui.qrc">
-                         <normaloff>:/Icons/PowPySol.svg</normaloff>:/Icons/PowPySol.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <spacer name="verticalSpacer">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_autoupdateStructure">
-                     <property name="text">
-                      <string>Autoupdate --&gt;</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_showLabels">
-                     <property name="text">
-                      <string>Atom labels</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_suffix">
-                     <property name="toolTip">
-                      <string>Add suffixes to symmetry generated atom labels</string>
-                     </property>
-                     <property name="text">
-                      <string>suffix symm.eq.</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="hLayout_Cbuttons">
+                      <item>
+                       <widget class="QToolButton" name="toolButton_updateParams">
+                        <property name="text">
+                         <string>...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normalon>:/Icons/Media-playback-start.svg</normalon>
+                         </iconset>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QToolButton" name="toolButton_randomStructure">
+                        <property name="toolTip">
+                         <string>randomise structure</string>
+                        </property>
+                        <property name="text">
+                         <string>...</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="gui.qrc">
+                          <normaloff>:/Icons/PowPySol.svg</normaloff>:/Icons/PowPySol.svg</iconset>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_autoupdateStructure">
+                      <property name="text">
+                       <string>Autoupdate --&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_showLabels">
+                      <property name="text">
+                       <string>Atom labels</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_suffix">
+                      <property name="toolTip">
+                       <string>Add suffixes to symmetry generated atom labels</string>
+                      </property>
+                      <property name="text">
+                       <string>suffix symm.eq.</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="tab_xtalData">
              <attribute name="title">
               <string>Crystal data</string>
              </attribute>
-             <widget class="QWidget" name="gridLayoutWidget_3">
-              <property name="geometry">
-               <rect>
-                <x>-1</x>
-                <y>-1</y>
-                <width>471</width>
-                <height>331</height>
-               </rect>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_xtalData">
-               <item row="0" column="0">
-                <widget class="QTreeView" name="treeView_xtalData"/>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_xtalData">
+                <item row="0" column="0">
+                 <widget class="QTreeView" name="treeView_xtalData"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="tab_log">
              <attribute name="title">
               <string>Log</string>
              </attribute>
-             <widget class="QWidget" name="gridLayoutWidget">
-              <property name="geometry">
-               <rect>
-                <x>-1</x>
-                <y>-1</y>
-                <width>471</width>
-                <height>331</height>
-               </rect>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_log">
-               <item row="0" column="0">
-                <widget class="QTextEdit" name="textEdit_log"/>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_log">
+                <item row="0" column="0">
+                 <widget class="QTextEdit" name="textEdit_log"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>

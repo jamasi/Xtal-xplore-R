@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'XtalxplorerMainWindowUI.ui'
 #
-# Created: Fri Jan 30 16:07:28 2015
+# Created: Mon Feb  2 20:27:59 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,18 +26,18 @@ except AttributeError:
 class Ui_XtalxplorerMainWindow(object):
     def setupUi(self, XtalxplorerMainWindow):
         XtalxplorerMainWindow.setObjectName(_fromUtf8("XtalxplorerMainWindow"))
-        XtalxplorerMainWindow.resize(1024, 788)
+        XtalxplorerMainWindow.resize(1024, 740)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(XtalxplorerMainWindow.sizePolicy().hasHeightForWidth())
         XtalxplorerMainWindow.setSizePolicy(sizePolicy)
-        XtalxplorerMainWindow.setMinimumSize(QtCore.QSize(1024, 768))
+        XtalxplorerMainWindow.setMinimumSize(QtCore.QSize(1024, 740))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/Icons/PowPySol.svg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         XtalxplorerMainWindow.setWindowIcon(icon)
         self.container = QtGui.QWidget(XtalxplorerMainWindow)
-        self.container.setMinimumSize(QtCore.QSize(1024, 729))
+        self.container.setMinimumSize(QtCore.QSize(1024, 700))
         self.container.setObjectName(_fromUtf8("container"))
         self.gridLayout = QtGui.QGridLayout(self.container)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
@@ -152,10 +152,12 @@ class Ui_XtalxplorerMainWindow(object):
         self.checkBox_suffix.setObjectName(_fromUtf8("checkBox_suffix"))
         self.vLayout_paramButtons.addWidget(self.checkBox_suffix)
         self.horizontalLayout.addLayout(self.vLayout_paramButtons)
-        self.horizontalLayout.setStretch(1, 1)
-        self.horizontalLayout.setStretch(2, 1)
-        self.horizontalLayout.setStretch(3, 1)
-        self.horizontalLayout.setStretch(4, 1)
+        self.horizontalLayout.setStretch(0, 1)
+        self.horizontalLayout.setStretch(1, 2)
+        self.horizontalLayout.setStretch(2, 2)
+        self.horizontalLayout.setStretch(3, 2)
+        self.horizontalLayout.setStretch(4, 2)
+        self.horizontalLayout.setStretch(5, 3)
         self.gridLayout_params.addLayout(self.horizontalLayout, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tabParams, _fromUtf8(""))
         self.tab_xtalData = QtGui.QWidget()

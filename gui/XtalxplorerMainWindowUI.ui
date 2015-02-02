@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>788</height>
+    <height>740</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>1024</width>
-    <height>768</height>
+    <height>740</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
    <property name="minimumSize">
     <size>
      <width>1024</width>
-     <height>729</height>
+     <height>700</height>
     </size>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -119,7 +119,7 @@
               </property>
               <layout class="QGridLayout" name="gridLayout_params">
                <item row="0" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,1,1,1,0">
+                <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2,2,2,2,3">
                  <item>
                   <widget class="QListWidget" name="lstWidget_atoms">
                    <property name="minimumSize">

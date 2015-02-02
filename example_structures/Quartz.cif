@@ -1,0 +1,38 @@
+#***************************************************************************
+#
+# Crystallographic Information File for Alpha Quartz
+#
+# Levien, L., Prewitt, C.T. and Weidner, D.J.
+# Am. Mineral.,  65,  920-930  (1980)
+#
+# CIF taken from the IZA-SC Database of Zeolite Structures
+# Ch. Baerlocher and L.B. McCusker,
+# Database of Zeolite Structures: http://www.iza-structure.org/databases/
+#
+#***************************************************************************
+
+data_xyz
+
+_chemical_name_systematic       'Alpha Quartz'
+_chemical_formula_structural    '[Si3O6]'
+
+_cell_length_a    4.916
+_cell_length_b    4.916
+_cell_length_c    5.4054
+_cell_angle_alpha    90
+_cell_angle_beta    90
+_cell_angle_gamma    120
+_cell_formula_units_Z 1
+_symmetry_space_group_name_H-M    'P3221'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+_atom_site_occupancy
+SI  Si  0.5303  0.0000  0.6667  0.62  1.0
+O  O  0.5865  0.7331  0.7142  1.05  1.0
+# End of data for Alpha Quartz

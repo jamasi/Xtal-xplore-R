@@ -86,7 +86,7 @@
       <item>
        <layout class="QVBoxLayout" name="vLayout_main" stretch="1,0,1">
         <item>
-         <layout class="QHBoxLayout" name="hLayout_top" stretch="1,1">
+         <layout class="QHBoxLayout" name="hLayout_top" stretch="1,0">
           <item>
            <widget class="QTabWidget" name="tabWidget">
             <property name="sizePolicy">
@@ -220,15 +220,15 @@
                         <rect>
                          <x>0</x>
                          <y>20</y>
-                         <width>119</width>
-                         <height>51</height>
+                         <width>131</width>
+                         <height>54</height>
                         </rect>
                        </property>
                        <layout class="QVBoxLayout" name="vLayout_structureSelect">
                         <item>
                          <widget class="QRadioButton" name="radioButton_structure1">
                           <property name="text">
-                           <string>trial structure</string>
+                           <string>trial str&amp;ucture</string>
                           </property>
                           <property name="checked">
                            <bool>true</bool>
@@ -355,7 +355,20 @@
            </widget>
           </item>
           <item>
-           <widget class="MayaviQStructureWidget" name="QMayavi_structure" native="true"/>
+           <widget class="QWidget" name="Q_structure_view" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>400</width>
+              <height>300</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -367,7 +380,7 @@
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="hLayout_bottom" stretch="1,0,1">
+         <layout class="QHBoxLayout" name="hLayout_bottom" stretch="1,0,0">
           <item>
            <layout class="QVBoxLayout" name="vLayout_mainvis" stretch="0,1">
             <item>
@@ -446,16 +459,22 @@
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="hLayout_topView" stretch="0,1">
+             <layout class="QHBoxLayout" name="hLayout_topView" stretch="0,0">
               <item>
                <widget class="DoubleSpinSlider" name="dss_dmin" native="true"/>
               </item>
               <item>
-               <widget class="MayaviQRPlotWidget" name="QMayavi_top" native="true">
+               <widget class="QWidget" name="Q_top_view" native="true">
                 <property name="minimumSize">
                  <size>
-                  <width>0</width>
-                  <height>20</height>
+                  <width>400</width>
+                  <height>300</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>400</width>
+                  <height>300</height>
                  </size>
                 </property>
                </widget>
@@ -472,7 +491,20 @@
            </widget>
           </item>
           <item>
-           <widget class="MayaviQRPlotWidget" name="QMayavi_3D" native="true"/>
+           <widget class="QWidget" name="Q_3D_View" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>400</width>
+              <height>300</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -488,7 +520,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>20</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_file">
@@ -598,21 +630,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MayaviQStructureWidget</class>
-   <extends>QWidget</extends>
-   <header>gui.mayaviqwidget</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>DoubleSpinSlider</class>
    <extends>QWidget</extends>
    <header>gui.doublespinslider</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>MayaviQRPlotWidget</class>
-   <extends>QWidget</extends>
-   <header>gui.mayaviqwidget</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -622,7 +642,7 @@
  <connections>
   <connection>
    <sender>action_quit</sender>
-   <signal>activated()</signal>
+   <signal>triggered(bool)</signal>
    <receiver>XtalxplorerMainWindow</receiver>
    <slot>close()</slot>
    <hints>
@@ -638,7 +658,7 @@
   </connection>
   <connection>
    <sender>action_about</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>XtalxplorerMainWindow</receiver>
    <slot>about()</slot>
    <hints>
@@ -654,7 +674,7 @@
   </connection>
   <connection>
    <sender>action_open</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>XtalxplorerMainWindow</receiver>
    <slot>browse_structure()</slot>
    <hints>
@@ -675,8 +695,8 @@
    <slot>browse_structure()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>309</x>
-     <y>371</y>
+     <x>47</x>
+     <y>74</y>
     </hint>
     <hint type="destinationlabel">
      <x>348</x>
@@ -707,8 +727,8 @@
    <slot>update_params()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>505</x>
-     <y>66</y>
+     <x>516</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -723,8 +743,8 @@
    <slot>handle_autoupdate_structure(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>493</x>
-     <y>99</y>
+     <x>595</x>
+     <y>275</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -739,8 +759,8 @@
    <slot>invalidate_cached_params()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>487</x>
-     <y>120</y>
+     <x>595</x>
+     <y>304</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -755,8 +775,8 @@
    <slot>invalidate_cached_params()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>487</x>
-     <y>145</y>
+     <x>595</x>
+     <y>333</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -771,8 +791,8 @@
    <slot>handle_autoupdate_r_plots(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>287</x>
-     <y>414</y>
+     <x>400</x>
+     <y>392</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -787,8 +807,8 @@
    <slot>_load_structure()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>475</x>
-     <y>86</y>
+     <x>594</x>
+     <y>127</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -803,8 +823,8 @@
    <slot>randomise_structure()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>485</x>
-     <y>141</y>
+     <x>573</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -819,8 +839,8 @@
    <slot>_copy_structure()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>28</x>
-     <y>74</y>
+     <x>36</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -835,8 +855,8 @@
    <slot>update_rplots()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>342</x>
-     <y>415</y>
+     <x>438</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -851,8 +871,8 @@
    <slot>update_rplots()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>415</y>
+     <x>288</x>
+     <y>392</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>

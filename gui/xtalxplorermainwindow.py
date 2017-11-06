@@ -21,18 +21,19 @@
 from __future__ import division
 from __future__ import absolute_import
 
-# First, and before importing any Enthought packages, set the ETS_TOOLKIT
-# environment variable to qt4, to tell Traits that we will use Qt.
-import os, sys, copy
-os.environ['ETS_TOOLKIT'] = 'qt4'
+import copy
 
-# To be able to use PySide or PyQt4 and not run in conflicts with traits,
-# we need to import QtGui and QtCore from pyface.qt
-from pyface.qt import QtGui, QtCore
-# Alternatively, you can bypass this line, but you need to make sure that
-# the following lines are executed before the import of PyQT:
-#   import sip
-#   sip.setapi('QString', 2)
+#try:
+#    from PySide import QtGui, QtCore  # noqa
+#    backend = 'pyside'
+#except ImportError:
+from qtpy import QtGui, QtWidgets, QtCore  # noqa
+#backend = 'pyqt4'
+import visvis as vv
+# Create a visvis app instance, which wraps a qt4 application object.
+# This needs to be done *before* instantiating the main window.
+app = vv.use()
+
 
 from . import XtalxplorerMainWindowUI
 import numpy as np
@@ -41,19 +42,22 @@ from cctbx.array_family import flex
 
 class EmittingStream(QtCore.QObject):
     """A simple class to make a nice log handler."""
-    textWritten = QtCore.pyqtSignal(str)
+
+    def __init__(self):
+        super(EmittingStream, self).__init__()
+        self.textWritten = QtCore.pyqtSignal(str)
 
     def write(self, text):
         """Write text to stream."""
         self.textWritten.emit(str(text))
 
-class XtalxplorerMainWindow(QtGui.QMainWindow,
+class XtalxplorerMainWindow(QtWidgets.QMainWindow,
                             XtalxplorerMainWindowUI.Ui_XtalxplorerMainWindow):
     """The second parent must be 'Ui_<obj. name of main widget class>'.
     If confusing, simply open up __UI.py and get the class name used."""
 
-    def __init__(self, parent=None):
-        super(XtalxplorerMainWindow, self).__init__(parent)
+    def __init__(self, parent=None, **kwargs):
+        super(XtalxplorerMainWindow, self).__init__(parent=parent, **kwargs)
         # This is because Python does not automatically
         # call the parent's constructor.
         self.setupUi(self)
@@ -67,12 +71,10 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         self._Rvalues = None
         self._update_structure_timer = QtCore.QTimer()
         self._update_structure_timer.setInterval(150)
-        QtCore.QObject.connect(self._update_structure_timer,
-                               QtCore.SIGNAL("timeout()"),self.update_params)
+        self._update_structure_timer.timeout.connect(self.update_params)
         self._update_rplots_timer = QtCore.QTimer()
         self._update_rplots_timer.setInterval(1000)
-        QtCore.QObject.connect(self._update_rplots_timer,
-                               QtCore.SIGNAL("timeout()"),self.update_rplots)
+        self._update_rplots_timer.timeout.connect(self.update_rplots)
         # redirect stdout and stderr to log window
         #sys.stdout = EmittingStream(textWritten=self.handle_stdout)
         #sys.stderr = EmittingStream(textWritten=self.handle_stdout)
@@ -93,7 +95,7 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
 
     def center(self):
         """Center the form window on the screen."""
-        screen = QtGui.QDesktopWidget().screenGeometry()
+        screen = QtWidgets.QDesktopWidget().screenGeometry()
         size =  self.geometry()
         self.move((screen.width()-size.width())/2,
                   (screen.height()-size.height())/2)
@@ -138,12 +140,12 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         """Present a file selection dialog to browse for a job file."""
         # Lets get a user-provided file to open
         # using PyQt's QFileDialog class.
-        filename = QtGui.QFileDialog.getOpenFileName(
+        filename, _ = QtWidgets.QFileDialog.getOpenFileName(
                         self,
                         "Open crystal structure",
                         QtCore.QDir.homePath(),
                         "crystal structure file (*.cif)",
-                        options=QtGui.QFileDialog.DontUseNativeDialog
+                        options=QtWidgets.QFileDialog.DontUseNativeDialog
                     )
         # Don't attempt to open if open dialog was cancelled away.
         if filename:
@@ -155,7 +157,7 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         if 1:
             print(filename)
         try:
-            from iotbx.cif import reader
+            from iotbx.cif import reader, CifParserError
             cif = reader(file_path=filename)
             structures = cif.build_crystal_structures()
             self.set_selected_structure(next(iter(structures.items()))[1])
@@ -188,7 +190,7 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
 
 
     def _update_structure_view(self):
-        self.QMayavi_structure.visualization.load_structure(
+        self.Q_structure_view.visualization.load_structure(
             self.selected_structure(),
             show_labels=self.checkBox_showLabels.isChecked(),
             suffixes=self.checkBox_suffix.isChecked())
@@ -246,10 +248,10 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         labels = (self.comboBox_x.currentText(),
                   self.comboBox_y.currentText(),
                   "r1")
-        self.QMayavi_3D.visualization.load_data(self._Rvalues,
+        self.Q_3D_view.visualization.load_data(self._Rvalues,
                                                 axis_labels=labels,
                                                 topview=False)
-        self.QMayavi_top.visualization.load_data(self._Rvalues,
+        self.Q_top_view.visualization.load_data(self._Rvalues,
                                                  axis_labels=labels,
                                                  topview=True)
         # turn timer back on if it was running before
@@ -281,8 +283,8 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         i = 0
         for y in step_sequence:
             self.progressBar.setValue(int(y*len(step_sequence)))
-            QtGui.QApplication.processEvents()
-            QtGui.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()
             for x in step_sequence:
                 newsites = copy.deepcopy(sites0)
                 newsites[dx//3][dx%3] = x
@@ -301,15 +303,15 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
         self.treeWidget_xtalData.setHeaderLabels(["Item","Value"])
         for key in self._job.results.scalars:
             #print("{0}: {1}".format(key, self._job.options[key]))
-            QtGui.QTreeWidgetItem(self.treeWidget_xtalData,
+            QtWidgets.QTreeWidgetItem(self.treeWidget_xtalData,
                                   [key, str(self._job.results[key])])
         for section in self._job.results.sections:
-            qsection = QtGui.QTreeWidgetItem(self.treeWidget_xtalData,
+            qsection = QtWidgets.QTreeWidgetItem(self.treeWidget_xtalData,
                                   [ section, "" ])
             for key in self._job.results[section].scalars:
                 #print("{0}-->{1}: {2}".format(section, key,
                 #                              self._job.results[section][key]))
-                QtGui.QTreeWidgetItem(qsection,
+                QtWidgets.QTreeWidgetItem(qsection,
                                       [key,
                                        str(self._job.results[section][key])])
         self.treeWidget_Status.expandAll()
@@ -332,11 +334,11 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
 
     def close_event(self, event):
         """Ask for confirmation before closing."""
-        reply = QtGui.QMessageBox.question(self,
+        reply = QtWidgets.QMessageBox.question(self,
                                     'Exit?', "Are you sure to quit?",
-                                    QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
 
-        if reply == QtGui.QMessageBox.Yes:
+        if reply == QtWidgets.QMessageBox.Yes:
             self.fileQuit()
             #event.accept()
         else:
@@ -344,7 +346,7 @@ class XtalxplorerMainWindow(QtGui.QMainWindow,
 
     def about(self):
         """Show some info about this programme."""
-        QtGui.QMessageBox.about(self, "About",
+        QtWidgets.QMessageBox.about(self, "About",
 """This programme is the graphical tool for crystal structure exploration.
 
 It is written in PyQT4 and uses Mayavi for visualisation.

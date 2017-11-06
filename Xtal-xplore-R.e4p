@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project Xtal-xplore-R -->
+<!-- Saved: 2017-11-06, 17:17:44 -->
+<!-- Copyright (C) 2017 Jan Marten Simons, marten@ifk.rwth-aachen.de -->
+<Project version="5.1">
+  <Language>en_GB</Language>
+  <Hash>79e51c48a73f9a7294d441b45dae0be6b05c5161</Hash>
+  <ProgLanguage mixed="0">Python2</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Description>A graphical tool for exploring the residual function involved in crystal structure determination</Description>
+  <Version>0.1</Version>
+  <Author>Jan Marten Simons</Author>
+  <Email>marten@ifk.rwth-aachen.de</Email>
+  <Eol index="0"/>
+  <Sources>
+    <Source>__init__.py</Source>
+    <Source>gui/PowpysolGuiMainWindowUI.py</Source>
+    <Source>gui/Ui_XtalxplorerMainWindowUI.py</Source>
+    <Source>gui/XtalxplorerMainWindowUI.py</Source>
+    <Source>gui/__init__.py</Source>
+    <Source>gui/doublespinslider.py</Source>
+    <Source>gui/doublespinsliderplugin.py</Source>
+    <Source>gui/gui_rc.py</Source>
+    <Source>gui/mayaviqwidget.py</Source>
+    <Source>gui/mymatplotlibcanvas.py</Source>
+    <Source>gui/visvisqwidget.py</Source>
+    <Source>gui/xtalxplorermainwindow.py</Source>
+    <Source>xtal-xplore-R.py</Source>
+  </Sources>
+  <Forms>
+    <Form>gui/XtalxplorerMainWindowUI.ui</Form>
+  </Forms>
+  <Translations/>
+  <Resources>
+    <Resource>gui/gui.qrc</Resource>
+  </Resources>
+  <Interfaces/>
+  <Others>
+    <Other>README.md</Other>
+  </Others>
+  <MainScript>xtal-xplore-R.py</MainScript>
+  <Vcs>
+    <VcsType>Git</VcsType>
+    <VcsOptions>
+      <dict>
+        <key>
+          <string>add</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>checkout</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>commit</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>diff</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>export</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>global</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>history</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>log</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>remove</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>status</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>tag</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+        <key>
+          <string>update</string>
+        </key>
+        <value>
+          <list>
+            <string></string>
+          </list>
+        </value>
+      </dict>
+    </VcsOptions>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.e4p" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.md" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.rst" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.txt" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+    <FiletypeAssociation pattern="README" type="OTHERS"/>
+    <FiletypeAssociation pattern="README.*" type="OTHERS"/>
+  </FiletypeAssociations>
+</Project>

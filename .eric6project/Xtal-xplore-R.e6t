@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
+<!-- eric6 tasks file for project Xtal-xplore-R -->
+<!-- Saved: 2017-11-06, 17:17:47 -->
+<Tasks version="6.0">
+  <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="2" uid="{c1807e7a-39b2-4825-937e-0228c096bfef}">
+    <Summary>WARNING:&quot; in text:</Summary>
+    <Description></Description>
+    <Created>2017-11-06, 16:57:41</Created>
+    <Resource>
+      <Filename>gui/xtalxplorermainwindow.py</Filename>
+      <Linenumber>367</Linenumber>
+    </Resource>
+  </Task>
+</Tasks>

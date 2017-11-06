@@ -19,35 +19,35 @@
 from __future__ import division, print_function, absolute_import
 
 from decimal import Decimal
-from PyQt4 import QtGui, QtCore
-from PyQt4.QtCore import pyqtSlot
+from qtpy import QtGui, QtWidgets, QtCore
+from qtpy.QtCore import Slot
 
 
-class DoubleSpinSlider(QtGui.QWidget):
+class DoubleSpinSlider(QtWidgets.QWidget):
     """This is a QWidget containing a QSlider and a QDoubleSpinBox"""
-    def __init__(self, parent=None, width=50, height=100, dpi=100):
-        #super(DoubleSpinSlider, self).__init__(parent)
-        QtGui.QWidget.__init__(self, parent)
-        self._vLayout = QtGui.QVBoxLayout()
+    def __init__(self, parent=None, width=50, height=100, dpi=100, **kwarg):
+        super(DoubleSpinSlider, self).__init__(parent, **kwarg)
+        #QtGui.QWidget.__init__(self, parent)
+        self._vLayout = QtWidgets.QVBoxLayout()
 
-        self._label = QtGui.QLabel(parent)
+        self._label = QtWidgets.QLabel(parent)
         self._label.setAlignment(QtCore.Qt.AlignCenter)
         self._vLayout.addWidget(self._label)
 
-        self._dSBox = QtGui.QDoubleSpinBox(parent)
+        self._dSBox = QtWidgets.QDoubleSpinBox(parent)
         self._dSBox.setWrapping(True)
         self._dSBox.setDecimals(4)
         self._dSBox.setMaximum(1.00000000)
         self._dSBox.setSingleStep(0.1000000000)
         self._vLayout.addWidget(self._dSBox)
 
-        self._hLayout = QtGui.QHBoxLayout()
-        self._vSlider = QtGui.QSlider(parent)
+        self._hLayout = QtWidgets.QHBoxLayout()
+        self._vSlider = QtWidgets.QSlider(parent)
         self._vSlider.setMinimum(0)
         self._vSlider.setMaximum(10000)
         self._vSlider.setPageStep(1000)
         self._vSlider.setOrientation(QtCore.Qt.Vertical)
-        self._vSlider.setTickPosition(QtGui.QSlider.TicksBothSides)
+        self._vSlider.setTickPosition(QtWidgets.QSlider.TicksBothSides)
         self._vSlider.setTickInterval(0)
         self._hLayout.addWidget(self._vSlider)
         self._vLayout.addLayout(self._hLayout)
@@ -65,7 +65,7 @@ class DoubleSpinSlider(QtGui.QWidget):
     def _multiplier(self):
         return 10.000000 ** self._dSBox.decimals()
 
-    @pyqtSlot(int)
+    @Slot(int)
     def ChangeSpinBox(self, slidervalue):
         #print("sv: {}".format(slidervalue))
         newvalue = round(slidervalue / (self._multiplier()),4)
@@ -73,7 +73,7 @@ class DoubleSpinSlider(QtGui.QWidget):
         if newvalue != self._dSBox.value():
             self._dSBox.setValue(newvalue)
 
-    @pyqtSlot('double')
+    @Slot('double')
     def ChangeSlider(self, spinboxvalue):
         newvalue = spinboxvalue * self._multiplier()
         #print("sb: {sb}  mult: {mult}  prod: {prod}".format(
@@ -82,12 +82,12 @@ class DoubleSpinSlider(QtGui.QWidget):
         #                    prod=newvalue))
         self._vSlider.setValue(newvalue)
 
-    @pyqtSlot('double')
+    @Slot('double')
     def setMaximum(self, maximum):
         self._dSBox.setMaximum(maximum)
         self._vSlider.setMaximum(maximum * self._multiplier())
 
-    @pyqtSlot('double')
+    @Slot('double')
     def setMinimum(self, minimum):
         self._dSBox.setMinimum(minimum)
         self._vSlider.setMinimum(minimum * self._multiplier())

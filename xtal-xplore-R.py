@@ -23,21 +23,8 @@ __status__ = "alpha"
 __version__ = "0.1.0"
 __date__ = "13 October 2014"
 
-# First, and before importing any Enthought packages, set the ETS_TOOLKIT
-# environment variable to qt4, to tell Traits that we will use Qt.
-import os, sys
-os.environ['ETS_TOOLKIT'] = 'qt4'
-
-# To be able to use PySide or PyQt4 and not run in conflicts with traits,
-# we need to import QtGui and QtCore from pyface.qt
-from pyface.qt import QtGui#, QtCore
-# Alternatively, you can bypass this line, but you need to make sure that
-# the following lines are executed before the import of PyQT:
-#   import sip
-#   sip.setapi('QString', 2)
-
-
 if __name__ == "__main__":
+    import sys
     from argparse import ArgumentParser
     version_string = "%(prog)s {0:s} ({1:s})".format(__version__,
                                                      __status__)
@@ -50,11 +37,20 @@ if __name__ == "__main__":
                         help="read crystal data from STRUCTUREFILE",
                         nargs="?", default="")
     cmd_args = parser.parse_args()
-    # Don't create a new QApplication, it would unhook the Events
-    # set by Traits on the existing QApplication. Simply use the
-    # '.instance()' method to retrieve the existing one.
+
+    #try:
+    #    from PySide import QtGui, QtCore  # noqa
+    #    backend = 'pyside'
+    #except ImportError:
+    from qtpy import QtGui, QtCore  # noqa
+    #backend = 'pyqt4'
+    import visvis as vv
+    # Create a visvis app instance, which wraps a qt4 application object.
+    # This needs to be done *before* instantiating the main window.
+    app = vv.use()
+    app.Create()
+
     from gui.xtalxplorermainwindow import XtalxplorerMainWindow
-    app = QtGui.QApplication.instance()
     mainwindow = XtalxplorerMainWindow()
     mainwindow.center()
     mainwindow.statusBar().showMessage('Ready')
@@ -63,4 +59,6 @@ if __name__ == "__main__":
         mainwindow.open_structure(cmd_args.STRUCTUREFILE)
 
     # Start the main event loop.
-    sys.exit(app.exec_())
+    app.Run()
+
+    #sys.exit(app.exec_())

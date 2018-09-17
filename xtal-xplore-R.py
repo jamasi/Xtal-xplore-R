@@ -1,3 +1,4 @@
+#!/usr/bin/env cctbx.python
 # -*- coding: utf-8 -*-
 """xtal-xplore-R - A graphical tool for crystal structure exploration
 
